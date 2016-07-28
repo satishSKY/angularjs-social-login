@@ -154,6 +154,7 @@ socialLogin.directive("gLogin", function($rootScope, social, socialLoginService)
 		replace: true,
 		link: function(scope, ele, attr){
 			ele.on('click', function(){
+				socialLoginService.setProvider("google");
 		    	if(typeof(scope.gauth) == "undefined")
 		    		scope.gauth = gapi.auth2.getAuthInstance();	
 	        	scope.gauth.signIn().then(function(googleUser){
